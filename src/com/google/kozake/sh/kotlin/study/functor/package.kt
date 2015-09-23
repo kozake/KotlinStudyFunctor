@@ -8,7 +8,6 @@ class MyFunctorList<A>(val list: List<A>) : MyFunctor<A>, List<A> by list {
 
     override fun toString() = list.toString()
 }
-
 class MyFunctorOptional<A>(val opt: Optional<A>) : MyFunctor<A> {
 
     override fun myMap<B>(f: (A) -> B): MyFunctorOptional<B> = MyFunctorOptional(opt.map(f))
@@ -16,7 +15,7 @@ class MyFunctorOptional<A>(val opt: Optional<A>) : MyFunctor<A> {
     override fun toString() = opt.toString()
 }
 
-public fun <A> List<A>.asFunctor(): MyFunctorList<A> = MyFunctorList(this)
+fun <A> List<A>.asFunctor(): MyFunctorList<A> = MyFunctorList(this)
 
-public fun <A> Optional<A>.asFunctor(): MyFunctorOptional<A> = MyFunctorOptional(this)
+fun <A> Optional<A>.asFunctor(): MyFunctorOptional<A> = MyFunctorOptional(this)
 
